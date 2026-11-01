@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GlobalBuy | Mega Marketplace</title>
+  <title>GlobalBuy | Marketplace</title>
   <style>
     * {
       box-sizing: border-box;
@@ -17,7 +17,6 @@
       padding-bottom: 60px;
     }
 
-    /* Orange Temu-Style Header */
     header {
       background-color: #fb7701;
       color: white;
@@ -71,7 +70,6 @@
       gap: 8px;
     }
 
-    /* Flash Sale Banner */
     .banner {
       background: linear-gradient(90deg, #ff4e00, #ec9f05);
       color: white;
@@ -81,14 +79,12 @@
       font-size: 14px;
     }
 
-    /* Main Container */
     .container {
       max-width: 1200px;
       margin: 20px auto;
       padding: 0 15px;
     }
 
-    /* Category Filter Buttons */
     .categories {
       display: flex;
       gap: 10px;
@@ -114,7 +110,6 @@
       border-color: #fb7701;
     }
 
-    /* Product Grid */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -138,7 +133,7 @@
 
     .card-img-container {
       position: relative;
-      height: 220px;
+      height: 240px;
       background: #eee;
     }
 
@@ -218,7 +213,6 @@
       background: #e06900;
     }
 
-    /* Modal Pop-up */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -286,7 +280,7 @@
     <div class="header-container">
       <div class="logo">GlobalBuy</div>
       <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search tech, streetwear, tees, sneakers..." oninput="filterProducts()">
+        <input type="text" id="searchInput" placeholder="Search streetwear, tees, pants, tech..." oninput="filterProducts()">
       </div>
       <button class="cart-btn" onclick="openCart()">
         🛒 Cart (<span id="cartCount">0</span>)
@@ -295,24 +289,21 @@
   </header>
 
   <div class="banner">
-    ⚡ MEGA SALE: Streetwear Drops & Tech Gadgets — Up to 85% OFF!
+    ⚡ FLASH SALE: Limited Drops & Free Global Shipping!
   </div>
 
   <div class="container">
-    <!-- Category Tabs -->
     <div class="categories">
       <button class="cat-btn active" onclick="filterCategory('all', this)">All Items</button>
-      <button class="cat-btn" onclick="filterCategory('tops', this)">Tees & Longsleeves</button>
-      <button class="cat-btn" onclick="filterCategory('bottoms', this)">Pants & Shorts</button>
+      <button class="cat-btn" onclick="filterCategory('tops', this)">Tees & Shirts</button>
+      <button class="cat-btn" onclick="filterCategory('bottoms', this)">Pants & Denim</button>
       <button class="cat-btn" onclick="filterCategory('footwear', this)">Footwear</button>
       <button class="cat-btn" onclick="filterCategory('tech', this)">Tech & Accessories</button>
     </div>
 
-    <!-- Product Grid -->
     <div class="product-grid" id="productGrid"></div>
   </div>
 
-  <!-- Cart Modal -->
   <div class="modal-overlay" id="cartModal">
     <div class="modal">
       <div class="modal-header">
@@ -331,16 +322,15 @@
 
   <script>
     const products = [
-      // Streetwear Products
       {
         id: 1,
-        name: "Angel Print Graphic Patchwork Longsleeve T-Shirt",
+        name: "ROMWE MEN Casual Patchwork Angel Letter Shirt",
         category: "tops",
         price: 29.99,
         oldPrice: 59.99,
         rating: "★ 4.9 (1.2k)",
         badge: "BEST SELLER",
-        img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400"
+        img: "ROMWE MEN Spring Casual Graphic Men'S Casual Contrast Color Patchwork Angel Letter Print T-Shirt, Autumn.jpg"
       },
       {
         id: 2,
@@ -350,7 +340,7 @@
         oldPrice: 39.99,
         rating: "★ 4.7 (850)",
         badge: "NEW DROP",
-        img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400"
+        img: "1042161170042171392.jpg"
       },
       {
         id: 3,
@@ -360,7 +350,7 @@
         oldPrice: 69.99,
         rating: "★ 4.8 (940)",
         badge: "HOT ITEM",
-        img: "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400"
+        img: "1028017052454363286.jpg"
       },
       {
         id: 4,
@@ -370,17 +360,17 @@
         oldPrice: 79.99,
         rating: "★ 4.9 (2.1k)",
         badge: "TRENDING",
-        img: "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?w=400"
+        img: "980518150154618822.jpg"
       },
       {
         id: 5,
-        name: "Powder Blue Y2K Crewneck Angel Sleeve Sweatshirt",
+        name: "Dreamy Powder Blue Y2K Crewneck Angel Sleeve Edition",
         category: "tops",
         price: 32.99,
         oldPrice: 65.00,
         rating: "★ 5.0 (610)",
         badge: "LIMITED",
-        img: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400"
+        img: "Dreamy Powder Blue Y2K Crewneck 💙 Angel Sleeve Edition.jpg"
       },
       {
         id: 6,
@@ -390,7 +380,7 @@
         oldPrice: 89.99,
         rating: "★ 4.9 (1.5k)",
         badge: "MUST HAVE",
-        img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400"
+        img: "1045116657298894397.jpg"
       },
       {
         id: 7,
@@ -400,7 +390,7 @@
         oldPrice: 49.99,
         rating: "★ 4.8 (3.4k)",
         badge: "TOP RATED",
-        img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400"
+        img: "410109109834966241.jpg"
       },
       {
         id: 8,
@@ -410,7 +400,7 @@
         oldPrice: 74.99,
         rating: "★ 4.7 (780)",
         badge: "50% OFF",
-        img: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400"
+        img: "870813277964807005.jpg"
       },
       {
         id: 9,
@@ -420,22 +410,10 @@
         oldPrice: 110.00,
         rating: "★ 4.9 (1.1k)",
         badge: "FLASH SALE",
-        img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400"
+        img: "1145251380277011661.jpg"
       },
       {
         id: 10,
-        name: "Pink Spider Web 'HUNTING' Oversized Graphic Tee",
-        category: "tops",
-        price: 22.99,
-        oldPrice: 45.00,
-        rating: "★ 4.8 (990)",
-        badge: "POPULAR",
-        img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400"
-      },
-
-      // Tech & Accessories Products
-      {
-        id: 11,
         name: "True Wireless Stereo Bluetooth Earbuds",
         category: "tech",
         price: 18.50,
@@ -445,7 +423,7 @@
         img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400"
       },
       {
-        id: 12,
+        id: 11,
         name: "Wireless Over-Ear Noise-Canceling Headphones",
         category: "tech",
         price: 24.99,
@@ -455,7 +433,7 @@
         img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400"
       },
       {
-        id: 13,
+        id: 12,
         name: "Smart Fitness Watch with Heart Rate Tracker",
         category: "tech",
         price: 29.99,
@@ -463,26 +441,6 @@
         rating: "★ 4.9 (2.5k)",
         badge: "BEST SELLER",
         img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400"
-      },
-      {
-        id: 14,
-        name: "Waterproof Portable Outdoor Bluetooth Speaker",
-        category: "tech",
-        price: 22.99,
-        oldPrice: 55.00,
-        rating: "★ 4.7 (1.4k)",
-        badge: "HOT DEAL",
-        img: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400"
-      },
-      {
-        id: 15,
-        name: "Fast Charging Dual USB-C Wireless Pad",
-        category: "tech",
-        price: 9.99,
-        oldPrice: 25.00,
-        rating: "★ 4.6 (910)",
-        badge: "60% OFF",
-        img: "https://images.unsplash.com/photo-1622445268465-843d63d6f469?w=400"
       }
     ];
 
@@ -495,7 +453,7 @@
         <div class="card">
           <div class="card-img-container">
             <span class="badge">${p.badge}</span>
-            <img src="${p.img}" alt="${p.name}">
+            <img src="${encodeURIComponent(p.img)}" alt="${p.name}" onerror="this.src='${p.img}'">
           </div>
           <div class="card-body">
             <div class="card-title">${p.name}</div>
@@ -570,7 +528,6 @@
       closeCart();
     }
 
-    // Initial Render
     renderProducts(products);
   </script>
 </body>
