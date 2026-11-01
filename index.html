@@ -322,7 +322,7 @@
       <hr style="margin: 15px 0;">
       <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 18px;">
         <span>Total:</span>
-        <span id="cartTotal">\$0.00</span>
+        <span id="cartTotal">$0.00</span>
       </div>
       <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
     </div>
@@ -338,7 +338,7 @@
         oldPrice: 59.99,
         rating: "★ 4.9 (1.2k)",
         badge: "BEST SELLER",
-        img: "https://i.ibb.co/VvzM47Y/angel-longsleeve.jpg"
+        img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400"
       },
       {
         id: 2,
@@ -348,7 +348,7 @@
         oldPrice: 39.99,
         rating: "★ 4.7 (850)",
         badge: "NEW DROP",
-        img: "https://i.ibb.co/68v8P7y/white-tank.jpg"
+        img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400"
       },
       {
         id: 3,
@@ -358,7 +358,7 @@
         oldPrice: 69.99,
         rating: "★ 4.8 (940)",
         badge: "HOT ITEM",
-        img: "https://i.ibb.co/3kWyN0R/blessing-shirt.jpg"
+        img: "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400"
       },
       {
         id: 4,
@@ -368,7 +368,7 @@
         oldPrice: 79.99,
         rating: "★ 4.9 (2.1k)",
         badge: "TRENDING",
-        img: "https://i.ibb.co/C0W1T3F/plaid-pants.jpg"
+        img: "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?w=400"
       },
       {
         id: 5,
@@ -378,7 +378,7 @@
         oldPrice: 65.00,
         rating: "★ 5.0 (610)",
         badge: "LIMITED",
-        img: "https://i.ibb.co/Jqj84Jk/blue-crewneck.jpg"
+        img: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400"
       },
       {
         id: 6,
@@ -388,7 +388,7 @@
         oldPrice: 89.99,
         rating: "★ 4.9 (1.5k)",
         badge: "MUST HAVE",
-        img: "https://i.ibb.co/2nL5Zq9/gothic-jeans.jpg"
+        img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400"
       },
       {
         id: 7,
@@ -398,7 +398,7 @@
         oldPrice: 49.99,
         rating: "★ 4.8 (3.4k)",
         badge: "TOP RATED",
-        img: "https://i.ibb.co/0y4xK7z/jordan-tee.jpg"
+        img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400"
       },
       {
         id: 8,
@@ -408,7 +408,7 @@
         oldPrice: 74.99,
         rating: "★ 4.7 (780)",
         badge: "50% OFF",
-        img: "https://i.ibb.co/RvyHhT0/striped-pullover.jpg"
+        img: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400"
       },
       {
         id: 9,
@@ -418,7 +418,7 @@
         oldPrice: 110.00,
         rating: "★ 4.9 (1.1k)",
         badge: "FLASH SALE",
-        img: "https://i.ibb.co/4T419H9/skate-sneakers.jpg"
+        img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400"
       },
       {
         id: 10,
@@ -428,7 +428,7 @@
         oldPrice: 45.00,
         rating: "★ 4.8 (990)",
         badge: "POPULAR",
-        img: "https://i.ibb.co/X3Y52Jq/spider-tee.jpg"
+        img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400"
       }
     ];
 
@@ -460,3 +460,64 @@
       const query = document.getElementById('searchInput').value.toLowerCase();
       const filtered = products.filter(p => 
         (currentCategory === 'all' || p.category === currentCategory) &&
+        p.name.toLowerCase().includes(query)
+      );
+      renderProducts(filtered);
+    }
+
+    function filterCategory(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterProducts();
+    }
+
+    function addToCart(id) {
+      const item = products.find(p => p.id === id);
+      cart.push(item);
+      document.getElementById('cartCount').innerText = cart.length;
+    }
+
+    function openCart() {
+      const modal = document.getElementById('cartModal');
+      const list = document.getElementById('cartItemsList');
+      const totalSpan = document.getElementById('cartTotal');
+      
+      if (cart.length === 0) {
+        list.innerHTML = '<p style="text-align:center; color:#777;">Your cart is empty!</p>';
+        totalSpan.innerText = '$0.00';
+      } else {
+        list.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <span>${item.name}</span>
+            <b>$${item.price.toFixed(2)}</b>
+          </div>
+        `).join('');
+        
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        totalSpan.innerText = `$${total.toFixed(2)}`;
+      }
+      
+      modal.style.display = 'flex';
+    }
+
+    function closeCart() {
+      document.getElementById('cartModal').style.display = 'none';
+    }
+
+    function checkout() {
+      if(cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      alert("Order placed successfully! Thank you for shopping with GlobalBuy.");
+      cart = [];
+      document.getElementById('cartCount').innerText = 0;
+      closeCart();
+    }
+
+    // Initial Render
+    renderProducts(products);
+  </script>
+</body>
+</html>
