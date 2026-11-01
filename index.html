@@ -262,7 +262,7 @@
 
     .checkout-btn {
       width: 100%;
-      background: #00baf2;
+      background: #25D366;
       color: white;
       border: none;
       padding: 12px;
@@ -271,6 +271,10 @@
       font-weight: bold;
       margin-top: 15px;
       cursor: pointer;
+    }
+
+    .checkout-btn:hover {
+      background: #1ebe5d;
     }
   </style>
 </head>
@@ -317,7 +321,7 @@
         <span>Total:</span>
         <span id="cartTotal">$0.00</span>
       </div>
-      <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+      <button class="checkout-btn" onclick="checkout()">💬 Order via WhatsApp</button>
     </div>
   </div>
 
@@ -496,7 +500,6 @@
     function renderProducts(items) {
       const grid = document.getElementById('productGrid');
       grid.innerHTML = items.map(p => {
-        // Automatically handle local images vs external URLs
         let imgSrc = p.img.startsWith('http') ? p.img : encodeURI(p.img);
         return `
           <div class="card">
@@ -572,7 +575,21 @@
         alert("Your cart is empty!");
         return;
       }
-      alert("Order placed successfully! Thank you for shopping with GlobalBuy.");
+
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      
+      let orderDetails = "Hello! I would like to place an order from GlobalBuy:%0A%0A";
+      cart.forEach((item, index) => {
+        orderDetails += `${index + 1}. ${item.name} - $${item.price.toFixed(2)}%0A`;
+      });
+      orderDetails += `%0A*Total Amount: $${total.toFixed(2)}*%0A%0APlease let me know how to proceed with payment and delivery!`;
+
+      // Active WhatsApp phone number set for checkout messaging
+      const phoneNumber = "2348101465167"; 
+
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${orderDetails}`;
+      window.open(whatsappURL, '_blank');
+
       cart = [];
       document.getElementById('cartCount').innerText = 0;
       closeCart();
