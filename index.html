@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GlobalBuy | Mega Deals</title>
+  <title>GlobalBuy | Streetwear Marketplace</title>
   <style>
     * {
       box-sizing: border-box;
@@ -138,7 +138,7 @@
 
     .card-img-container {
       position: relative;
-      height: 180px;
+      height: 220px;
       background: #eee;
     }
 
@@ -176,6 +176,12 @@
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
+      font-weight: 600;
+    }
+
+    .rating {
+      font-size: 12px;
+      color: #ff9900;
     }
 
     .price-row {
@@ -280,7 +286,7 @@
     <div class="header-container">
       <div class="logo">GlobalBuy</div>
       <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search items, tech, accessories..." oninput="filterProducts()">
+        <input type="text" id="searchInput" placeholder="Search streetwear, tees, pants, sneakers..." oninput="filterProducts()">
       </div>
       <button class="cart-btn" onclick="openCart()">
         🛒 Cart (<span id="cartCount">0</span>)
@@ -289,16 +295,16 @@
   </header>
 
   <div class="banner">
-    ⚡ FLASH SALE: Free Shipping & Up to 80% OFF on Selected Items!
+    ⚡ STREETWEAR FLASH SALE: Limited Edition Drops & Free Global Shipping!
   </div>
 
   <div class="container">
     <!-- Category Tabs -->
     <div class="categories">
-      <button class="cat-btn active" onclick="filterCategory('all', this)">All Items</button>
-      <button class="cat-btn" onclick="filterCategory('tech', this)">Tech & Electronics</button>
-      <button class="cat-btn" onclick="filterCategory('wearables', this)">Wearables</button>
-      <button class="cat-btn" onclick="filterCategory('home', this)">Home & Office</button>
+      <button class="cat-btn active" onclick="filterCategory('all', this)">All Streetwear</button>
+      <button class="cat-btn" onclick="filterCategory('tops', this)">Tees & Longsleeves</button>
+      <button class="cat-btn" onclick="filterCategory('bottoms', this)">Pants & Shorts</button>
+      <button class="cat-btn" onclick="filterCategory('footwear', this)">Footwear</button>
     </div>
 
     <!-- Product Grid -->
@@ -316,7 +322,7 @@
       <hr style="margin: 15px 0;">
       <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 18px;">
         <span>Total:</span>
-        <span id="cartTotal">$0.00</span>
+        <span id="cartTotal">\$0.00</span>
       </div>
       <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
     </div>
@@ -324,12 +330,106 @@
 
   <script>
     const products = [
-      { id: 1, name: "Wireless Bluetooth Headphones", category: "tech", price: 19.99, oldPrice: 49.99, badge: "70% OFF", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" },
-      { id: 2, name: "Smart Fitness Watch", category: "wearables", price: 29.99, oldPrice: 79.99, badge: "BEST SELLER", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-      { id: 3, name: "RGB Gaming Mouse", category: "tech", price: 12.50, oldPrice: 25.00, badge: "FLASH SALE", img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=400" },
-      { id: 4, name: "Minimalist Desk Lamp", category: "home", price: 15.99, oldPrice: 35.00, badge: "HOT DEAL", img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400" },
-      { id: 5, name: "Portable Speaker", category: "tech", price: 24.99, oldPrice: 59.99, badge: "LIMITED", img: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400" },
-      { id: 6, name: "Noise Cancelling Earbuds", category: "wearables", price: 18.50, oldPrice: 45.00, badge: "50% OFF", img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400" }
+      {
+        id: 1,
+        name: "Angel Print Graphic Patchwork Longsleeve T-Shirt",
+        category: "tops",
+        price: 29.99,
+        oldPrice: 59.99,
+        rating: "★ 4.9 (1.2k)",
+        badge: "BEST SELLER",
+        img: "https://i.ibb.co/VvzM47Y/angel-longsleeve.jpg"
+      },
+      {
+        id: 2,
+        name: "White Minimalist D-Logo Tank Top Set",
+        category: "tops",
+        price: 19.99,
+        oldPrice: 39.99,
+        rating: "★ 4.7 (850)",
+        badge: "NEW DROP",
+        img: "https://i.ibb.co/68v8P7y/white-tank.jpg"
+      },
+      {
+        id: 3,
+        name: "BLESSING Angel Graphic Zip-Up Shirt",
+        category: "tops",
+        price: 34.99,
+        oldPrice: 69.99,
+        rating: "★ 4.8 (940)",
+        badge: "HOT ITEM",
+        img: "https://i.ibb.co/3kWyN0R/blessing-shirt.jpg"
+      },
+      {
+        id: 4,
+        name: "Wide-Leg Plaid Flannel Streetwear Pants",
+        category: "bottoms",
+        price: 39.99,
+        oldPrice: 79.99,
+        rating: "★ 4.9 (2.1k)",
+        badge: "TRENDING",
+        img: "https://i.ibb.co/C0W1T3F/plaid-pants.jpg"
+      },
+      {
+        id: 5,
+        name: "Powder Blue Y2K Crewneck Angel Sleeve Sweatshirt",
+        category: "tops",
+        price: 32.99,
+        oldPrice: 65.00,
+        rating: "★ 5.0 (610)",
+        badge: "LIMITED",
+        img: "https://i.ibb.co/Jqj84Jk/blue-crewneck.jpg"
+      },
+      {
+        id: 6,
+        name: "Gothic Cargo Denim Jeans with Chains & Patchwork",
+        category: "bottoms",
+        price: 44.99,
+        oldPrice: 89.99,
+        rating: "★ 4.9 (1.5k)",
+        badge: "MUST HAVE",
+        img: "https://i.ibb.co/2nL5Zq9/gothic-jeans.jpg"
+      },
+      {
+        id: 7,
+        name: "GOAT Jordan 23 Vintage Graphic Tee",
+        category: "tops",
+        price: 24.99,
+        oldPrice: 49.99,
+        rating: "★ 4.8 (3.4k)",
+        badge: "TOP RATED",
+        img: "https://i.ibb.co/0y4xK7z/jordan-tee.jpg"
+      },
+      {
+        id: 8,
+        name: "Black & White Wide Stripe Quarter-Zip Pullover",
+        category: "tops",
+        price: 36.99,
+        oldPrice: 74.99,
+        rating: "★ 4.7 (780)",
+        badge: "50% OFF",
+        img: "https://i.ibb.co/RvyHhT0/striped-pullover.jpg"
+      },
+      {
+        id: 9,
+        name: "Skate Chunky Embroidery Black Sneakers",
+        category: "footwear",
+        price: 54.99,
+        oldPrice: 110.00,
+        rating: "★ 4.9 (1.1k)",
+        badge: "FLASH SALE",
+        img: "https://i.ibb.co/4T419H9/skate-sneakers.jpg"
+      },
+      {
+        id: 10,
+        name: "Pink Spider Web 'HUNTING' Oversized Graphic Tee",
+        category: "tops",
+        price: 22.99,
+        oldPrice: 45.00,
+        rating: "★ 4.8 (990)",
+        badge: "POPULAR",
+        img: "https://i.ibb.co/X3Y52Jq/spider-tee.jpg"
+      }
     ];
 
     let cart = [];
@@ -345,6 +445,7 @@
           </div>
           <div class="card-body">
             <div class="card-title">${p.name}</div>
+            <div class="rating">${p.rating}</div>
             <div class="price-row">
               <span class="current-price">$${p.price.toFixed(2)}</span>
               <span class="old-price">$${p.oldPrice.toFixed(2)}</span>
@@ -359,64 +460,3 @@
       const query = document.getElementById('searchInput').value.toLowerCase();
       const filtered = products.filter(p => 
         (currentCategory === 'all' || p.category === currentCategory) &&
-        p.name.toLowerCase().includes(query)
-      );
-      renderProducts(filtered);
-    }
-
-    function filterCategory(cat, btn) {
-      currentCategory = cat;
-      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      filterProducts();
-    }
-
-    function addToCart(id) {
-      const item = products.find(p => p.id === id);
-      cart.push(item);
-      document.getElementById('cartCount').innerText = cart.length;
-    }
-
-    function openCart() {
-      const modal = document.getElementById('cartModal');
-      const list = document.getElementById('cartItemsList');
-      const totalSpan = document.getElementById('cartTotal');
-      
-      if (cart.length === 0) {
-        list.innerHTML = '<p style="text-align:center; color:#777;">Your cart is empty!</p>';
-        totalSpan.innerText = '$0.00';
-      } else {
-        list.innerHTML = cart.map(item => `
-          <div class="cart-item">
-            <span>${item.name}</span>
-            <b>$${item.price.toFixed(2)}</b>
-          </div>
-        `).join('');
-        
-        const total = cart.reduce((sum, item) => sum + item.price, 0);
-        totalSpan.innerText = `$${total.toFixed(2)}`;
-      }
-      
-      modal.style.display = 'flex';
-    }
-
-    function closeCart() {
-      document.getElementById('cartModal').style.display = 'none';
-    }
-
-    function checkout() {
-      if(cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
-      }
-      alert("Order placed successfully! Thank you for shopping with GlobalBuy.");
-      cart = [];
-      document.getElementById('cartCount').innerText = 0;
-      closeCart();
-    }
-
-    // Initial Render
-    renderProducts(products);
-  </script>
-</body>
-</html>
