@@ -2,238 +2,421 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GlobalBuy - Massive Deals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlobalBuy | Mega Deals</title>
   <style>
-    body { 
-      font-family: Arial, sans-serif; 
-      background-color: #f6f6f6; 
-      margin: 0; 
-      padding-bottom: 40px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    /* Bright Orange Temu-Style Header */
+    body {
+      background-color: #f4f4f4;
+      padding-bottom: 60px;
+    }
+
+    /* Orange Temu-Style Header */
     header {
-      background-color: #ff5722;
+      background-color: #fb7701;
       color: white;
       padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
     }
 
     .logo {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 1px;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      cursor: pointer;
     }
 
-    .cart-badge {
-      background-color: white;
-      color: #ff5722;
-      padding: 8px 15px;
+    .search-bar {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 16px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .cart-btn {
+      background: white;
+      color: #fb7701;
+      border: none;
+      padding: 8px 16px;
       border-radius: 20px;
       font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    /* Banner */
+    /* Flash Sale Banner */
     .banner {
-      background: linear-gradient(135deg, #ff9800, #ff5722);
+      background: linear-gradient(90deg, #ff4e00, #ec9f05);
       color: white;
       text-align: center;
-      padding: 20px;
-      font-size: 18px;
+      padding: 10px;
       font-weight: bold;
+      font-size: 14px;
     }
 
-    /* Product Grid layout to fill screen */
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    /* Category Filter Buttons */
+    .categories {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+    }
+
+    .cat-btn {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 8px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: 0.2s;
+    }
+
+    .cat-btn.active, .cat-btn:hover {
+      background: #fb7701;
+      color: white;
+      border-color: #fb7701;
+    }
+
+    /* Product Grid */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
     }
 
-    .product-card { 
-      background: white; 
-      border-radius: 10px; 
-      padding: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08); 
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transition: transform 0.2s;
     }
 
-    .product-card:hover {
-      transform: translateY(-3px);
+    .card:hover {
+      transform: translateY(-4px);
     }
 
-    .product-card img {
+    .card-img-container {
+      position: relative;
+      height: 180px;
+      background: #eee;
+    }
+
+    .card-img-container img {
       width: 100%;
-      height: 150px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 6px;
     }
 
-    .product-title {
+    .badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #e60023;
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 3px 7px;
+      border-radius: 4px;
+    }
+
+    .card-body {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .card-title {
       font-size: 14px;
-      margin: 10px 0 5px 0;
       color: #333;
+      height: 38px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
 
     .price-row {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 10px;
+      align-items: baseline;
+      gap: 8px;
     }
 
-    .price { 
-      color: #e41e31; 
-      font-weight: bold; 
-      font-size: 20px; 
-      margin: 0;
+    .current-price {
+      font-size: 18px;
+      font-weight: 800;
+      color: #e60023;
     }
 
     .old-price {
-      text-decoration: line-through;
-      color: #888;
       font-size: 12px;
+      color: #888;
+      text-decoration: line-through;
     }
 
-    button {
-      background-color: #ff5722;
+    .add-to-cart {
+      width: 100%;
+      background: #fb7701;
       color: white;
       border: none;
-      padding: 8px;
-      border-radius: 5px;
-      cursor: pointer;
+      padding: 10px;
+      border-radius: 6px;
       font-weight: bold;
-      width: 100%;
-      margin-top: 10px;
+      cursor: pointer;
+      margin-top: auto;
     }
 
-    button:hover {
-      background-color: #e64a19;
+    .add-to-cart:hover {
+      background: #e06900;
+    }
+
+    /* Modal Pop-up */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal {
+      background: white;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 12px;
+      padding: 20px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: #00baf2;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 15px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">⚡ GlobalBuy</div>
-    <div class="cart-badge">🛒 Cart: <span id="cart-count">0</span></div>
+    <div class="header-container">
+      <div class="logo">GlobalBuy</div>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search items, tech, accessories..." oninput="filterProducts()">
+      </div>
+      <button class="cart-btn" onclick="openCart()">
+        🛒 Cart (<span id="cartCount">0</span>)
+      </button>
+    </div>
   </header>
 
   <div class="banner">
-    🔥 FLASH SALE — Up to 90% OFF Direct From Factories!
+    ⚡ FLASH SALE: Free Shipping & Up to 80% OFF on Selected Items!
   </div>
 
-  <div class="product-grid">
-
-    <!-- Product 1 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300" alt="Earbuds">
-      <div class="product-title">Wireless Bluetooth Earbuds</div>
-      <div><span class="old-price">$29.99</span></div>
-      <div class="price-row">
-        <p class="price">$4.99</p>
-      </div>
-      <button onclick="addToCart()">Add to Cart</button>
+  <div class="container">
+    <!-- Category Tabs -->
+    <div class="categories">
+      <button class="cat-btn active" onclick="filterCategory('all', this)">All Items</button>
+      <button class="cat-btn" onclick="filterCategory('tech', this)">Tech & Electronics</button>
+      <button class="cat-btn" onclick="filterCategory('wearables', this)">Wearables</button>
+      <button class="cat-btn" onclick="filterCategory('home', this)">Home & Office</button>
     </div>
 
-    <!-- Product 2 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300" alt="Smart Watch">
-      <div class="product-title">Fitness Smart Watch</div>
-      <div><span class="old-price">$45.00</span></div>
-      <div class="price-row">
-        <p class="price">$8.50</p>
-      </div>
-      <button onclick="addToCart()">Add to Cart</button>
-    </div>
+    <!-- Product Grid -->
+    <div class="product-grid" id="productGrid"></div>
+  </div>
 
-    <!-- Product 3 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300" alt="Sneakers">
-      <div class="product-title">Lightweight Running Shoes</div>
-      <div><span class="old-price">$60.00</span></div>
-      <div class="price-row">
-        <p class="price">$12.99</p>
+  <!-- Cart Modal -->
+  <div class="modal-overlay" id="cartModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Your Shopping Cart</h2>
+        <button class="close-btn" onclick="closeCart()">&times;</button>
       </div>
-      <button onclick="addToCart()">Add to Cart</button>
-    </div>
-
-    <!-- Product 4 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300" alt="Headphones">
-      <div class="product-title">Over-Ear Noise Cancelling Headphones</div>
-      <div><span class="old-price">$79.99</span></div>
-      <div class="price-row">
-        <p class="price">$15.40</p>
+      <div id="cartItemsList"></div>
+      <hr style="margin: 15px 0;">
+      <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 18px;">
+        <span>Total:</span>
+        <span id="cartTotal">$0.00</span>
       </div>
-      <button onclick="addToCart()">Add to Cart</button>
+      <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
     </div>
-
-    <!-- Product 5 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300" alt="Gaming Mouse">
-      <div class="product-title">RGB Gaming Mouse</div>
-      <div><span class="old-price">$25.00</span></div>
-      <div class="price-row">
-        <p class="price">$3.75</p>
-      </div>
-      <button onclick="addToCart()">Add to Cart</button>
-    </div>
-
-    <!-- Product 6 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=300" alt="Backpack">
-      <div class="product-title">Waterproof Travel Backpack</div>
-      <div><span class="old-price">$50.00</span></div>
-      <div class="price-row">
-        <p class="price">$9.99</p>
-      </div>
-      <button onclick="addToCart()">Add to Cart</button>
-    </div>
-
-    <!-- Product 7 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=300" alt="Camera">
-      <div class="product-title">Mini Instant Camera</div>
-      <div><span class="old-price">$89.00</span></div>
-      <div class="price-row">
-        <p class="price">$19.50</p>
-      </div>
-      <button onclick="addToCart()">Add to Cart</button>
-    </div>
-
-    <!-- Product 8 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300" alt="Sunglasses">
-      <div class="product-title">Classic Polarized Sunglasses</div>
-      <div><span class="old-price">$20.00</span></div>
-      <div class="price-row">
-        <p class="price">$2.99</p>
-      </div>
-      <button onclick="addToCart()">Add to Cart</button>
-    </div>
-
   </div>
 
   <script>
-    let itemCount = 0;
-    function addToCart() {
-      itemCount++;
-      document.getElementById('cart-count').innerText = itemCount;
-    }
-  </script>
+    const products = [
+      { id: 1, name: "Wireless Bluetooth Headphones", category: "tech", price: 19.99, oldPrice: 49.99, badge: "70% OFF", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" },
+      { id: 2, name: "Smart Fitness Watch", category: "wearables", price: 29.99, oldPrice: 79.99, badge: "BEST SELLER", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
+      { id: 3, name: "RGB Gaming Mouse", category: "tech", price: 12.50, oldPrice: 25.00, badge: "FLASH SALE", img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=400" },
+      { id: 4, name: "Minimalist Desk Lamp", category: "home", price: 15.99, oldPrice: 35.00, badge: "HOT DEAL", img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400" },
+      { id: 5, name: "Portable Speaker", category: "tech", price: 24.99, oldPrice: 59.99, badge: "LIMITED", img: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400" },
+      { id: 6, name: "Noise Cancelling Earbuds", category: "wearables", price: 18.50, oldPrice: 45.00, badge: "50% OFF", img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400" }
+    ];
 
+    let cart = [];
+    let currentCategory = 'all';
+
+    function renderProducts(items) {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = items.map(p => `
+        <div class="card">
+          <div class="card-img-container">
+            <span class="badge">${p.badge}</span>
+            <img src="${p.img}" alt="${p.name}">
+          </div>
+          <div class="card-body">
+            <div class="card-title">${p.name}</div>
+            <div class="price-row">
+              <span class="current-price">$${p.price.toFixed(2)}</span>
+              <span class="old-price">$${p.oldPrice.toFixed(2)}</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(${p.id})">Add to Cart</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterProducts() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = products.filter(p => 
+        (currentCategory === 'all' || p.category === currentCategory) &&
+        p.name.toLowerCase().includes(query)
+      );
+      renderProducts(filtered);
+    }
+
+    function filterCategory(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterProducts();
+    }
+
+    function addToCart(id) {
+      const item = products.find(p => p.id === id);
+      cart.push(item);
+      document.getElementById('cartCount').innerText = cart.length;
+    }
+
+    function openCart() {
+      const modal = document.getElementById('cartModal');
+      const list = document.getElementById('cartItemsList');
+      const totalSpan = document.getElementById('cartTotal');
+      
+      if (cart.length === 0) {
+        list.innerHTML = '<p style="text-align:center; color:#777;">Your cart is empty!</p>';
+        totalSpan.innerText = '$0.00';
+      } else {
+        list.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <span>${item.name}</span>
+            <b>$${item.price.toFixed(2)}</b>
+          </div>
+        `).join('');
+        
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        totalSpan.innerText = `$${total.toFixed(2)}`;
+      }
+      
+      modal.style.display = 'flex';
+    }
+
+    function closeCart() {
+      document.getElementById('cartModal').style.display = 'none';
+    }
+
+    function checkout() {
+      if(cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      alert("Order placed successfully! Thank you for shopping with GlobalBuy.");
+      cart = [];
+      document.getElementById('cartCount').innerText = 0;
+      closeCart();
+    }
+
+    // Initial Render
+    renderProducts(products);
+  </script>
 </body>
 </html>
