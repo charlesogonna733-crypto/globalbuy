@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GlobalBuy | Streetwear Marketplace</title>
+  <title>GlobalBuy | Mega Marketplace</title>
   <style>
     * {
       box-sizing: border-box;
@@ -286,7 +286,7 @@
     <div class="header-container">
       <div class="logo">GlobalBuy</div>
       <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search streetwear, tees, pants, sneakers..." oninput="filterProducts()">
+        <input type="text" id="searchInput" placeholder="Search tech, streetwear, tees, sneakers..." oninput="filterProducts()">
       </div>
       <button class="cart-btn" onclick="openCart()">
         🛒 Cart (<span id="cartCount">0</span>)
@@ -295,16 +295,17 @@
   </header>
 
   <div class="banner">
-    ⚡ STREETWEAR FLASH SALE: Limited Edition Drops & Free Global Shipping!
+    ⚡ MEGA SALE: Streetwear Drops & Tech Gadgets — Up to 85% OFF!
   </div>
 
   <div class="container">
     <!-- Category Tabs -->
     <div class="categories">
-      <button class="cat-btn active" onclick="filterCategory('all', this)">All Streetwear</button>
+      <button class="cat-btn active" onclick="filterCategory('all', this)">All Items</button>
       <button class="cat-btn" onclick="filterCategory('tops', this)">Tees & Longsleeves</button>
       <button class="cat-btn" onclick="filterCategory('bottoms', this)">Pants & Shorts</button>
       <button class="cat-btn" onclick="filterCategory('footwear', this)">Footwear</button>
+      <button class="cat-btn" onclick="filterCategory('tech', this)">Tech & Accessories</button>
     </div>
 
     <!-- Product Grid -->
@@ -330,6 +331,7 @@
 
   <script>
     const products = [
+      // Streetwear Products
       {
         id: 1,
         name: "Angel Print Graphic Patchwork Longsleeve T-Shirt",
@@ -429,6 +431,58 @@
         rating: "★ 4.8 (990)",
         badge: "POPULAR",
         img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400"
+      },
+
+      // Tech & Accessories Products
+      {
+        id: 11,
+        name: "True Wireless Stereo Bluetooth Earbuds",
+        category: "tech",
+        price: 18.50,
+        oldPrice: 59.99,
+        rating: "★ 4.9 (3.5k)",
+        badge: "65% OFF",
+        img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400"
+      },
+      {
+        id: 12,
+        name: "Wireless Over-Ear Noise-Canceling Headphones",
+        category: "tech",
+        price: 24.99,
+        oldPrice: 69.99,
+        rating: "★ 4.8 (1.8k)",
+        badge: "TOP TECH",
+        img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400"
+      },
+      {
+        id: 13,
+        name: "Smart Fitness Watch with Heart Rate Tracker",
+        category: "tech",
+        price: 29.99,
+        oldPrice: 99.99,
+        rating: "★ 4.9 (2.5k)",
+        badge: "BEST SELLER",
+        img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400"
+      },
+      {
+        id: 14,
+        name: "Waterproof Portable Outdoor Bluetooth Speaker",
+        category: "tech",
+        price: 22.99,
+        oldPrice: 55.00,
+        rating: "★ 4.7 (1.4k)",
+        badge: "HOT DEAL",
+        img: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400"
+      },
+      {
+        id: 15,
+        name: "Fast Charging Dual USB-C Wireless Pad",
+        category: "tech",
+        price: 9.99,
+        oldPrice: 25.00,
+        rating: "★ 4.6 (910)",
+        badge: "60% OFF",
+        img: "https://images.unsplash.com/photo-1622445268465-843d63d6f469?w=400"
       }
     ];
 
