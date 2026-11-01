@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GlobalBuy | Marketplace</title>
+  <title>GlobalBuy | Mega Marketplace</title>
   <style>
     * {
       box-sizing: border-box;
@@ -280,7 +280,7 @@
     <div class="header-container">
       <div class="logo">GlobalBuy</div>
       <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search streetwear, tees, pants, tech..." oninput="filterProducts()">
+        <input type="text" id="searchInput" placeholder="Search streetwear, tech, local market goods..." oninput="filterProducts()">
       </div>
       <button class="cart-btn" onclick="openCart()">
         🛒 Cart (<span id="cartCount">0</span>)
@@ -289,7 +289,7 @@
   </header>
 
   <div class="banner">
-    ⚡ FLASH SALE: Limited Drops & Free Global Shipping!
+    ⚡ GLOBALBUY MEGA MARKET: Streetwear, Gadgets & Local Essentials!
   </div>
 
   <div class="container">
@@ -299,6 +299,7 @@
       <button class="cat-btn" onclick="filterCategory('bottoms', this)">Pants & Denim</button>
       <button class="cat-btn" onclick="filterCategory('footwear', this)">Footwear</button>
       <button class="cat-btn" onclick="filterCategory('tech', this)">Tech & Accessories</button>
+      <button class="cat-btn" onclick="filterCategory('local', this)">Local Market Goods</button>
     </div>
 
     <div class="product-grid" id="productGrid"></div>
@@ -322,6 +323,7 @@
 
   <script>
     const products = [
+      // --- Streetwear Custom Apparel & Footwear ---
       {
         id: 1,
         name: "ROMWE MEN Casual Patchwork Angel Letter Shirt",
@@ -412,6 +414,8 @@
         badge: "FLASH SALE",
         img: "1145251380277011661.jpg"
       },
+
+      // --- Tech & Accessories ---
       {
         id: 10,
         name: "True Wireless Stereo Bluetooth Earbuds",
@@ -441,6 +445,48 @@
         rating: "★ 4.9 (2.5k)",
         badge: "BEST SELLER",
         img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400"
+      },
+
+      // --- Realistic Local Market Goods ---
+      {
+        id: 13,
+        name: "Classic Unisex Black Cotton Everyday T-Shirt",
+        category: "local",
+        price: 8.50,
+        oldPrice: 15.00,
+        rating: "★ 4.8 (2.1k)",
+        badge: "LOCAL FAVORITE",
+        img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400"
+      },
+      {
+        id: 14,
+        name: "Universal Fast-Charging USB-C Cable (2m)",
+        category: "local",
+        price: 4.99,
+        oldPrice: 10.00,
+        rating: "★ 4.7 (5.4k)",
+        badge: "ESSENTIAL",
+        img: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400"
+      },
+      {
+        id: 15,
+        name: "Comfort Slip-On Rubber Casual Slides",
+        category: "local",
+        price: 12.00,
+        oldPrice: 22.00,
+        rating: "★ 4.9 (1.9k)",
+        badge: "BEST SELLER",
+        img: "https://images.unsplash.com/photo-1603808033192-082d6939d3e1?w=400"
+      },
+      {
+        id: 16,
+        name: "Clear Shockproof Protective Phone Case",
+        category: "local",
+        price: 3.50,
+        oldPrice: 8.00,
+        rating: "★ 4.6 (3.2k)",
+        badge: "HOT DEAL",
+        img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400"
       }
     ];
 
@@ -449,23 +495,27 @@
 
     function renderProducts(items) {
       const grid = document.getElementById('productGrid');
-      grid.innerHTML = items.map(p => `
-        <div class="card">
-          <div class="card-img-container">
-            <span class="badge">${p.badge}</span>
-            <img src="${encodeURIComponent(p.img)}" alt="${p.name}" onerror="this.src='${p.img}'">
-          </div>
-          <div class="card-body">
-            <div class="card-title">${p.name}</div>
-            <div class="rating">${p.rating}</div>
-            <div class="price-row">
-              <span class="current-price">$${p.price.toFixed(2)}</span>
-              <span class="old-price">$${p.oldPrice.toFixed(2)}</span>
+      grid.innerHTML = items.map(p => {
+        // Automatically handle local images vs external URLs
+        let imgSrc = p.img.startsWith('http') ? p.img : encodeURI(p.img);
+        return `
+          <div class="card">
+            <div class="card-img-container">
+              <span class="badge">${p.badge}</span>
+              <img src="${imgSrc}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400'">
             </div>
-            <button class="add-to-cart" onclick="addToCart(${p.id})">Add to Cart</button>
+            <div class="card-body">
+              <div class="card-title">${p.name}</div>
+              <div class="rating">${p.rating}</div>
+              <div class="price-row">
+                <span class="current-price">$${p.price.toFixed(2)}</span>
+                <span class="old-price">$${p.oldPrice.toFixed(2)}</span>
+              </div>
+              <button class="add-to-cart" onclick="addToCart(${p.id})">Add to Cart</button>
+            </div>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
 
     function filterProducts() {
