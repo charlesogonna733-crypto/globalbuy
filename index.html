@@ -905,3 +905,15 @@
   <p class="price">₦30,000</p>
   <a href="https://wa.me/2348101465167?text=I%20want%20to%20buy%20Yukon%20Crocs" class="buy-btn">Order on WhatsApp</a>
 </div>
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover; /* This prevents images from stretching or mismatching sizes */
+  border-radius: 8px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
