@@ -319,7 +319,7 @@
       <hr style="margin: 15px 0;">
       <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 18px;">
         <span>Total:</span>
-        <span id="cartTotal">$0.00</span>
+        <span id="cartTotal">₦0</span>
       </div>
       <button class="checkout-btn" onclick="checkout()">💬 Order via WhatsApp</button>
     </div>
@@ -327,13 +327,12 @@
 
   <script>
     const products = [
-      // --- ORIGINAL STOCK ---
       {
         id: 1,
         name: "ROMWE MEN Casual Patchwork Angel Letter Shirt",
         category: "tops",
-        price: 29.99,
-        oldPrice: 59.99,
+        price: 25000,
+        oldPrice: 50000,
         rating: "★ 4.9 (1.2k)",
         badge: "BEST SELLER",
         img: "ROMWE MEN Spring Casual Graphic Men'S Casual Contrast Color Patchwork Angel Letter Print T-Shirt, Autumn.jpg"
@@ -342,8 +341,8 @@
         id: 2,
         name: "White Minimalist D-Logo Tank Top Set",
         category: "tops",
-        price: 19.99,
-        oldPrice: 39.99,
+        price: 15000,
+        oldPrice: 30000,
         rating: "★ 4.7 (850)",
         badge: "NEW DROP",
         img: "1042161170042171392.jpg"
@@ -352,8 +351,8 @@
         id: 3,
         name: "BLESSING Angel Graphic Zip-Up Shirt",
         category: "tops",
-        price: 34.99,
-        oldPrice: 69.99,
+        price: 28000,
+        oldPrice: 55000,
         rating: "★ 4.8 (940)",
         badge: "HOT ITEM",
         img: "1028017052454363286.jpg"
@@ -362,8 +361,8 @@
         id: 4,
         name: "Wide-Leg Plaid Flannel Streetwear Pants",
         category: "bottoms",
-        price: 39.99,
-        oldPrice: 79.99,
+        price: 32000,
+        oldPrice: 64000,
         rating: "★ 4.9 (2.1k)",
         badge: "TRENDING",
         img: "980518150154618822.jpg"
@@ -372,8 +371,8 @@
         id: 5,
         name: "Dreamy Powder Blue Y2K Crewneck Angel Sleeve Edition",
         category: "tops",
-        price: 32.99,
-        oldPrice: 65.00,
+        price: 27000,
+        oldPrice: 54000,
         rating: "★ 5.0 (610)",
         badge: "LIMITED",
         img: "Dreamy Powder Blue Y2K Crewneck 💙 Angel Sleeve Edition.jpg"
@@ -382,8 +381,8 @@
         id: 6,
         name: "Gothic Cargo Denim Jeans with Chains & Patchwork",
         category: "bottoms",
-        price: 44.99,
-        oldPrice: 89.99,
+        price: 38000,
+        oldPrice: 75000,
         rating: "★ 4.9 (1.5k)",
         badge: "MUST HAVE",
         img: "1045116657298894397.jpg"
@@ -392,8 +391,8 @@
         id: 7,
         name: "GOAT Jordan 23 Vintage Graphic Tee",
         category: "tops",
-        price: 24.99,
-        oldPrice: 49.99,
+        price: 20000,
+        oldPrice: 40000,
         rating: "★ 4.8 (3.4k)",
         badge: "TOP RATED",
         img: "410109109834966241.jpg"
@@ -402,8 +401,8 @@
         id: 8,
         name: "Black & White Wide Stripe Quarter-Zip Pullover",
         category: "tops",
-        price: 36.99,
-        oldPrice: 74.99,
+        price: 30000,
+        oldPrice: 60000,
         rating: "★ 4.7 (780)",
         badge: "50% OFF",
         img: "870813277964807005.jpg"
@@ -412,8 +411,8 @@
         id: 9,
         name: "Skate Chunky Embroidery Black Sneakers",
         category: "footwear",
-        price: 54.99,
-        oldPrice: 110.00,
+        price: 45000,
+        oldPrice: 90000,
         rating: "★ 4.9 (1.1k)",
         badge: "FLASH SALE",
         img: "1145251380277011661.jpg"
@@ -422,8 +421,8 @@
         id: 10,
         name: "True Wireless Stereo Bluetooth Earbuds",
         category: "tech",
-        price: 18.50,
-        oldPrice: 59.99,
+        price: 15000,
+        oldPrice: 45000,
         rating: "★ 4.9 (3.5k)",
         badge: "65% OFF",
         img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400"
@@ -432,8 +431,8 @@
         id: 11,
         name: "Wireless Over-Ear Noise-Canceling Headphones",
         category: "tech",
-        price: 24.99,
-        oldPrice: 69.99,
+        price: 22000,
+        oldPrice: 60000,
         rating: "★ 4.8 (1.8k)",
         badge: "TOP TECH",
         img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400"
@@ -442,8 +441,8 @@
         id: 12,
         name: "Smart Fitness Watch with Heart Rate Tracker",
         category: "tech",
-        price: 29.99,
-        oldPrice: 99.99,
+        price: 25000,
+        oldPrice: 80000,
         rating: "★ 4.9 (2.5k)",
         badge: "BEST SELLER",
         img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400"
@@ -452,8 +451,8 @@
         id: 13,
         name: "Classic Unisex Black Cotton Everyday T-Shirt",
         category: "local",
-        price: 8.50,
-        oldPrice: 15.00,
+        price: 7000,
+        oldPrice: 12000,
         rating: "★ 4.8 (2.1k)",
         badge: "LOCAL FAVORITE",
         img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400"
@@ -462,8 +461,8 @@
         id: 14,
         name: "Universal Fast-Charging USB-C Cable (2m)",
         category: "local",
-        price: 4.99,
-        oldPrice: 10.00,
+        price: 4000,
+        oldPrice: 8000,
         rating: "★ 4.7 (5.4k)",
         badge: "ESSENTIAL",
         img: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400"
@@ -472,8 +471,8 @@
         id: 15,
         name: "Comfort Slip-On Rubber Casual Slides",
         category: "local",
-        price: 12.00,
-        oldPrice: 22.00,
+        price: 10000,
+        oldPrice: 18000,
         rating: "★ 4.9 (1.9k)",
         badge: "BEST SELLER",
         img: "https://images.unsplash.com/photo-1603808033192-082d6939d3e1?w=400"
@@ -482,20 +481,18 @@
         id: 16,
         name: "Clear Shockproof Protective Phone Case",
         category: "local",
-        price: 3.50,
-        oldPrice: 8.00,
+        price: 3000,
+        oldPrice: 6000,
         rating: "★ 4.6 (3.2k)",
         badge: "HOT DEAL",
         img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400"
       },
-
-      // --- NEWLY ADDED UPLOADS (SCREENSHOT 1) ---
       {
         id: 17,
         name: "New White AMIRI Fall Winter Knit Outdoor Warmth Hat",
         category: "tech",
-        price: 22.00,
-        oldPrice: 45.00,
+        price: 18000,
+        oldPrice: 35000,
         rating: "★ 4.9 (320)",
         badge: "NEW ARRIVAL",
         img: "New White AMIRI Fall_Winter Hat Knit Hat Outdoor Warmth.jpg"
@@ -504,8 +501,8 @@
         id: 18,
         name: "Streetwear Premium Leather Belt",
         category: "local",
-        price: 18.00,
-        oldPrice: 35.00,
+        price: 15000,
+        oldPrice: 28000,
         rating: "★ 4.8 (410)",
         badge: "HOT ITEM",
         img: "Streetwear Leather-belt _ • Price....jpg"
@@ -514,8 +511,8 @@
         id: 19,
         name: "Adidas Yeezy Slide Comfort Edition",
         category: "footwear",
-        price: 45.00,
-        oldPrice: 90.00,
+        price: 35000,
+        oldPrice: 70000,
         rating: "★ 5.0 (1.1k)",
         badge: "MUST HAVE",
         img: "ADIDAS YEEZY SLIDE_NOW AVAILABLE IN;_SIZE....jpg"
@@ -524,8 +521,8 @@
         id: 20,
         name: "Y2K Oversized Graphic Casual Tee",
         category: "tops",
-        price: 27.00,
-        oldPrice: 55.00,
+        price: 22000,
+        oldPrice: 44000,
         rating: "★ 4.7 (280)",
         badge: "TRENDING",
         img: "790381803366106115.jpg"
@@ -534,8 +531,8 @@
         id: 21,
         name: "Classic Comfortable Casual Crocs",
         category: "footwear",
-        price: 29.99,
-        oldPrice: 50.00,
+        price: 25000,
+        oldPrice: 40000,
         rating: "★ 4.9 (890)",
         badge: "POPULAR",
         img: "Crocs (1).jpg"
@@ -544,8 +541,8 @@
         id: 22,
         name: "Street Style Distressed Denim Jeans",
         category: "bottoms",
-        price: 42.00,
-        oldPrice: 85.00,
+        price: 35000,
+        oldPrice: 70000,
         rating: "★ 4.8 (630)",
         badge: "TOP PICK",
         img: "876020565039160799.jpg"
@@ -554,8 +551,8 @@
         id: 23,
         name: "Vintage Urban Loose Fit Cargo Pants",
         category: "bottoms",
-        price: 39.50,
-        oldPrice: 78.00,
+        price: 32000,
+        oldPrice: 64000,
         rating: "★ 4.9 (740)",
         badge: "NEW DROP",
         img: "1104789352354407358.jpg"
@@ -564,8 +561,8 @@
         id: 24,
         name: "Minimalist Black Streetwear Hoodie",
         category: "tops",
-        price: 38.00,
-        oldPrice: 75.00,
+        price: 30000,
+        oldPrice: 60000,
         rating: "★ 4.8 (510)",
         badge: "BEST VALUE",
         img: "910219774741216321.jpg"
@@ -574,8 +571,8 @@
         id: 25,
         name: "Nike 6-Pair Cushion Crew Everyday Comfort Socks",
         category: "local",
-        price: 15.00,
-        oldPrice: 30.00,
+        price: 12000,
+        oldPrice: 24000,
         rating: "★ 4.9 (2.4k)",
         badge: "ESSENTIAL",
         img: "Nike 6-Pair Cushion Crew Socks – Everyday Comfort & Performance!.jpg"
@@ -584,20 +581,18 @@
         id: 26,
         name: "Streetwear Special Edition Apparel",
         category: "tops",
-        price: 39.00,
-        oldPrice: 75.00,
+        price: 39000,
+        oldPrice: 75000,
         rating: "★ 4.7 (190)",
         badge: "LIMITED",
         img: "39,000.jpg"
       },
-
-      // --- NEWLY ADDED UPLOADS (SCREENSHOT 2) ---
       {
         id: 27,
         name: "Cyberpunk Techwear Printed Tee",
         category: "tops",
-        price: 26.50,
-        oldPrice: 52.00,
+        price: 22000,
+        oldPrice: 44000,
         rating: "★ 4.8 (340)",
         badge: "HOT DEAL",
         img: "982418106206053244.jpg"
@@ -606,8 +601,8 @@
         id: 28,
         name: "Casual Loose Fit Daily Sweatpants",
         category: "bottoms",
-        price: 34.00,
-        oldPrice: 68.00,
+        price: 28000,
+        oldPrice: 56000,
         rating: "★ 4.7 (460)",
         badge: "COMFY FIT",
         img: "1112741020460903103.jpg"
@@ -616,8 +611,8 @@
         id: 29,
         name: "Classic All-Weather Foam Slides",
         category: "footwear",
-        price: 28.00,
-        oldPrice: 55.00,
+        price: 22000,
+        oldPrice: 44000,
         rating: "★ 4.9 (1.2k)",
         badge: "FAVORITE",
         img: "CROCS.jpg"
@@ -626,8 +621,8 @@
         id: 30,
         name: "Retro Athletic Printed Track Jacket",
         category: "tops",
-        price: 45.00,
-        oldPrice: 90.00,
+        price: 35000,
+        oldPrice: 70000,
         rating: "★ 4.9 (380)",
         badge: "TOP RATED",
         img: "1133429431299712403.jpg"
@@ -636,8 +631,8 @@
         id: 31,
         name: "Gothic Dark Wash Denim Jeans",
         category: "bottoms",
-        price: 43.00,
-        oldPrice: 86.00,
+        price: 35000,
+        oldPrice: 70000,
         rating: "★ 4.8 (670)",
         badge: "NEW DROP",
         img: "1097471002975962337.jpg"
@@ -646,8 +641,8 @@
         id: 32,
         name: "Y2K Skeleton Rhinestone Zip Hoodie",
         category: "tops",
-        price: 49.99,
-        oldPrice: 95.00,
+        price: 40000,
+        oldPrice: 80000,
         rating: "★ 5.0 (820)",
         badge: "MUST HAVE",
         img: "1115555770221591057.jpg"
@@ -656,8 +651,8 @@
         id: 33,
         name: "Wide Leg Vintage Skate Trousers",
         category: "bottoms",
-        price: 37.00,
-        oldPrice: 74.00,
+        price: 30000,
+        oldPrice: 60000,
         rating: "★ 4.7 (290)",
         badge: "POPULAR",
         img: "980518150148598395.jpg"
@@ -666,8 +661,8 @@
         id: 34,
         name: "Forever 21 Rhinestone Embellished Dark Grey Washed Jeans",
         category: "bottoms",
-        price: 48.00,
-        oldPrice: 95.00,
+        price: 38000,
+        oldPrice: 75000,
         rating: "★ 4.9 (910)",
         badge: "PREMIUM",
         img: "Forever 21 Men's Loose Fitting Rhinestone Embellished Dark Grey Washed Jeans,Streetwear Men Party Clothes.jpg"
@@ -676,8 +671,8 @@
         id: 35,
         name: "Graphic Streetwear Pullover Sweater",
         category: "tops",
-        price: 36.00,
-        oldPrice: 72.00,
+        price: 28000,
+        oldPrice: 56000,
         rating: "★ 4.8 (430)",
         badge: "HOT ITEM",
         img: "1111896595533831770.jpg"
@@ -686,20 +681,18 @@
         id: 36,
         name: "Urban Tactical Utility Vest",
         category: "tops",
-        price: 32.00,
-        oldPrice: 64.00,
+        price: 25000,
+        oldPrice: 50000,
         rating: "★ 4.7 (310)",
         badge: "LIMITED",
         img: "870179959256073686.jpg"
       },
-
-      // --- NEWLY ADDED UPLOADS (SCREENSHOT 3) ---
       {
         id: 37,
         name: "Heavyweight Oversized Vintage Graphic Tee",
         category: "tops",
-        price: 28.00,
-        oldPrice: 56.00,
+        price: 22000,
+        oldPrice: 44000,
         rating: "★ 4.9 (540)",
         badge: "NEW DROP",
         img: "1149684611110636030.jpg"
@@ -708,8 +701,8 @@
         id: 38,
         name: "Shorts Jeans Y2K Largo com Bordado",
         category: "bottoms",
-        price: 35.00,
-        oldPrice: 70.00,
+        price: 28000,
+        oldPrice: 56000,
         rating: "★ 4.9 (620)",
         badge: "Y2K STYLE",
         img: "👖 Shorts Jeans Y2K Largo com Bordado.jpg"
@@ -718,8 +711,8 @@
         id: 39,
         name: "Praise Stores Special Men's Streetwear Jeans",
         category: "bottoms",
-        price: 46.00,
-        oldPrice: 92.00,
+        price: 38000,
+        oldPrice: 76000,
         rating: "★ 5.0 (480)",
         badge: "2026 EDITION",
         img: "Pin by Praise's Stores on Men's Jeans in 2026....jpg"
@@ -728,8 +721,8 @@
         id: 40,
         name: "Minimalist Monochrome Graphic Shirt",
         category: "tops",
-        price: 25.00,
-        oldPrice: 50.00,
+        price: 20000,
+        oldPrice: 40000,
         rating: "★ 4.8 (370)",
         badge: "BEST SELLER",
         img: "663506957641256842.jpg"
@@ -738,8 +731,8 @@
         id: 41,
         name: "Distressed Acid Wash Denim Jacket",
         category: "tops",
-        price: 52.00,
-        oldPrice: 105.00,
+        price: 42000,
+        oldPrice: 85000,
         rating: "★ 4.9 (790)",
         badge: "HOT DEAL",
         img: "856317316679660555.jpg"
@@ -748,8 +741,8 @@
         id: 42,
         name: "Relaxed Fit Urban Chino Trousers",
         category: "bottoms",
-        price: 33.00,
-        oldPrice: 66.00,
+        price: 26000,
+        oldPrice: 52000,
         rating: "★ 4.7 (250)",
         badge: "ESSENTIAL",
         img: "927108273362867534.jpg"
@@ -758,8 +751,8 @@
         id: 43,
         name: "Casual Streetwear Printed Layered Longsleeve",
         category: "tops",
-        price: 31.00,
-        oldPrice: 62.00,
+        price: 25000,
+        oldPrice: 50000,
         rating: "★ 4.8 (410)",
         badge: "TRENDING",
         img: "1129770256536002775.jpg"
@@ -768,8 +761,8 @@
         id: 44,
         name: "Retro Washed Oversized Crewneck",
         category: "tops",
-        price: 37.50,
-        oldPrice: 75.00,
+        price: 30000,
+        oldPrice: 60000,
         rating: "★ 4.9 (680)",
         badge: "TOP RATED",
         img: "1013661828636211027.jpg"
@@ -778,8 +771,8 @@
         id: 45,
         name: "High-Waisted Baggy Cargo Denim Jeans",
         category: "bottoms",
-        price: 44.00,
-        oldPrice: 88.00,
+        price: 35000,
+        oldPrice: 70000,
         rating: "★ 4.9 (830)",
         badge: "MUST HAVE",
         img: "1092122978549122332.jpg"
@@ -803,8 +796,8 @@
               <div class="card-title">${p.name}</div>
               <div class="rating">${p.rating}</div>
               <div class="price-row">
-                <span class="current-price">$${p.price.toFixed(2)}</span>
-                <span class="old-price">$${p.oldPrice.toFixed(2)}</span>
+                <span class="current-price">₦${p.price.toLocaleString()}</span>
+                <span class="old-price">₦${p.oldPrice.toLocaleString()}</span>
               </div>
               <button class="add-to-cart" onclick="addToCart(${p.id})">Add to Cart</button>
             </div>
@@ -842,17 +835,17 @@
       
       if (cart.length === 0) {
         list.innerHTML = '<p style="text-align:center; color:#777;">Your cart is empty!</p>';
-        totalSpan.innerText = '$0.00';
+        totalSpan.innerText = '₦0';
       } else {
         list.innerHTML = cart.map(item => `
           <div class="cart-item">
             <span>${item.name}</span>
-            <b>$${item.price.toFixed(2)}</b>
+            <b>₦${item.price.toLocaleString()}</b>
           </div>
         `).join('');
         
         const total = cart.reduce((sum, item) => sum + item.price, 0);
-        totalSpan.innerText = `$${total.toFixed(2)}`;
+        totalSpan.innerText = `₦${total.toLocaleString()}`;
       }
       
       modal.style.display = 'flex';
@@ -872,11 +865,10 @@
       
       let orderDetails = "Hello! I would like to place an order from GlobalBuy:%0A%0A";
       cart.forEach((item, index) => {
-        orderDetails += `${index + 1}. ${item.name} - $${item.price.toFixed(2)}%0A`;
+        orderDetails += `${index + 1}. ${item.name} - ₦${item.price.toLocaleString()}%0A`;
       });
-      orderDetails += `%0A*Total Amount: $${total.toFixed(2)}*%0A%0APlease let me know how to proceed with payment and delivery!`;
+      orderDetails += `%0A*Total Amount: ₦${total.toLocaleString()}*%0A%0APlease let me know how to proceed with payment and delivery!`;
 
-      // Direct WhatsApp number configuration
       const phoneNumber = "2348101465167"; 
 
       const whatsappURL = `https://wa.me/${phoneNumber}?text=${orderDetails}`;
