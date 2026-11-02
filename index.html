@@ -325,7 +325,648 @@
     </div>
   </div>
 
-  <script <script>
+  <script<script>
+    const products = [
+      {
+        id: 1,
+        name: "ROMWE MEN Casual Patchwork Angel Letter Shirt",
+        category: "tops",
+        price: 29.99,
+        oldPrice: 59.99,
+        rating: "★ 4.9 (1.2k)",
+        badge: "BEST SELLER",
+        img: "ROMWE MEN Spring Casual Graphic Men'S Casual Contrast Color Patchwork Angel Letter Print T-Shirt, Autumn.jpg",
+        desc: "High quality, comfortable, and durable casual wear."
+      },
+      {
+        id: 2,
+        name: "White Minimalist D-Logo Tank Top Set",
+        category: "tops",
+        price: 19.99,
+        oldPrice: 39.99,
+        rating: "★ 4.7 (850)",
+        badge: "NEW DROP",
+        img: "1042161170042171392.jpg",
+        desc: "Lightweight and breathable cotton material."
+      },
+      {
+        id: 3,
+        name: "BLESSING Angel Graphic Zip-Up Shirt",
+        category: "tops",
+        price: 34.99,
+        oldPrice: 69.99,
+        rating: "★ 4.8 (940)",
+        badge: "HOT ITEM",
+        img: "1028017052454363286.jpg",
+        desc: "Trendy graphic design with a comfortable fit."
+      },
+      {
+        id: 4,
+        name: "Wide-Leg Plaid Flannel Streetwear Pants",
+        category: "bottoms",
+        price: 39.99,
+        oldPrice: 79.99,
+        rating: "★ 4.9 (2.1k)",
+        badge: "TRENDING",
+        img: "980518150154618822.jpg",
+        desc: "Relaxed fit flannel pants for ultimate style."
+      },
+      {
+        id: 5,
+        name: "Dreamy Powder Blue Y2K Crewneck Angel Sleeve Edition",
+        category: "tops",
+        price: 32.99,
+        oldPrice: 65.00,
+        rating: "★ 5.0 (610)",
+        badge: "LIMITED",
+        img: "Dreamy Powder Blue Y2K Crewneck 💙 Angel Sleeve Edition.jpg",
+        desc: "Soft fabric featuring a unique Y2K aesthetic."
+      },
+      {
+        id: 6,
+        name: "Gothic Cargo Denim Jeans with Chains & Patchwork",
+        category: "bottoms",
+        price: 44.99,
+        oldPrice: 89.99,
+        rating: "★ 4.9 (1.5k)",
+        badge: "MUST HAVE",
+        img: "1045116657298894397.jpg",
+        desc: "Edgy denim complete with unique detailing."
+      },
+      {
+        id: 7,
+        name: "GOAT Jordan 23 Vintage Graphic Tee",
+        category: "tops",
+        price: 24.99,
+        oldPrice: 49.99,
+        rating: "★ 4.8 (3.4k)",
+        badge: "TOP RATED",
+        img: "410109109834966241.jpg",
+        desc: "Classic vintage graphic tee for everyday wear."
+      },
+      {
+        id: 8,
+        name: "Black & White Wide Stripe Quarter-Zip Pullover",
+        category: "tops",
+        price: 36.99,
+        oldPrice: 74.99,
+        rating: "★ 4.7 (780)",
+        badge: "50% OFF",
+        img: "870813277964807005.jpg",
+        desc: "Sharp, sporty look built for comfort."
+      },
+      {
+        id: 9,
+        name: "Skate Chunky Embroidery Black Sneakers",
+        category: "footwear",
+        price: 54.99,
+        oldPrice: 110.00,
+        rating: "★ 4.9 (1.1k)",
+        badge: "FLASH SALE",
+        img: "1145251380277011661.jpg",
+        desc: "Durable soles with detailed embroidery."
+      },
+      {
+        id: 10,
+        name: "True Wireless Stereo Bluetooth Earbuds",
+        category: "tech",
+        price: 18.50,
+        oldPrice: 59.99,
+        rating: "★ 4.9 (3.5k)",
+        badge: "65% OFF",
+        img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400",
+        desc: "Crystal-clear sound with long battery life."
+      },
+      {
+        id: 11,
+        name: "Wireless Over-Ear Noise-Canceling Headphones",
+        category: "tech",
+        price: 24.99,
+        oldPrice: 69.99,
+        rating: "★ 4.8 (1.8k)",
+        badge: "TOP TECH",
+        img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
+        desc: "Immersive sound quality with plush cushion earcups."
+      },
+      {
+        id: 12,
+        name: "Smart Fitness Watch with Heart Rate Tracker",
+        category: "tech",
+        price: 29.99,
+        oldPrice: 99.99,
+        rating: "★ 4.9 (2.5k)",
+        badge: "BEST SELLER",
+        img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400",
+        desc: "Track your daily fitness goals and notifications easily."
+      },
+      {
+        id: 13,
+        name: "Classic Unisex Black Cotton Everyday T-Shirt",
+        category: "local",
+        price: 8.50,
+        oldPrice: 15.00,
+        rating: "★ 4.8 (2.1k)",
+        badge: "LOCAL FAVORITE",
+        img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400",
+        desc: "Soft, durable cotton basic for everyday use."
+      },
+      {
+        id: 14,
+        name: "Universal Fast-Charging USB-C Cable (2m)",
+        category: "local",
+        price: 4.99,
+        oldPrice: 10.00,
+        rating: "★ 4.7 (5.4k)",
+        badge: "ESSENTIAL",
+        img: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400",
+        desc: "Durable braided fast-charging cable."
+      },
+      {
+        id: 15,
+        name: "Comfort Slip-On Rubber Casual Slides",
+        category: "local",
+        price: 12.00,
+        oldPrice: 22.00,
+        rating: "★ 4.9 (1.9k)",
+        badge: "BEST SELLER",
+        img: "https://images.unsplash.com/photo-1603808033192-082d6939d3e1?w=400",
+        desc: "Lightweight and waterproof slip-on slides."
+      },
+      {
+        id: 16,
+        name: "Clear Shockproof Protective Phone Case",
+        category: "local",
+        price: 3.50,
+        oldPrice: 8.00,
+        rating: "★ 4.6 (3.2k)",
+        badge: "HOT DEAL",
+        img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400",
+        desc: "Anti-yellowing protective case with reinforced corners."
+      },
+      {
+        id: 17,
+        name: "New White AMIRI Fall Winter Knit Outdoor Warmth Hat",
+        category: "tech",
+        price: 22.00,
+        oldPrice: 45.00,
+        rating: "★ 4.9 (320)",
+        badge: "NEW ARRIVAL",
+        img: "New White AMIRI Fall_Winter Hat Knit Hat Outdoor Warmth.jpg",
+        desc: "Cozy knit beanie designed for cold weather."
+      },
+      {
+        id: 18,
+        name: "Streetwear Premium Leather Belt",
+        category: "local",
+        price: 18.00,
+        oldPrice: 35.00,
+        rating: "★ 4.8 (410)",
+        badge: "HOT ITEM",
+        img: "Streetwear Leather-belt _ • Price....jpg",
+        desc: "Durable leather belt with a sleek metal buckle."
+      },
+      {
+        id: 19,
+        name: "Adidas Yeezy Slide Comfort Edition",
+        category: "footwear",
+        price: 45.00,
+        oldPrice: 90.00,
+        rating: "★ 5.0 (1.1k)",
+        badge: "MUST HAVE",
+        img: "ADIDAS YEEZY SLIDE_NOW AVAILABLE IN;_SIZE....jpg",
+        desc: "Ultra-soft foam slides for supreme cushioning."
+      },
+      {
+        id: 20,
+        name: "Y2K Oversized Graphic Casual Tee",
+        category: "tops",
+        price: 27.00,
+        oldPrice: 55.00,
+        rating: "★ 4.7 (280)",
+        badge: "TRENDING",
+        img: "790381803366106115.jpg",
+        desc: "Oversized graphic tee with a relaxed fit."
+      },
+      {
+        id: 21,
+        name: "Classic Comfortable Casual Crocs",
+        category: "footwear",
+        price: 29.99,
+        oldPrice: 50.00,
+        rating: "★ 4.9 (890)",
+        badge: "POPULAR",
+        img: "Crocs (1).jpg",
+        desc: "Lightweight, water-friendly comfort clogs."
+      },
+      {
+        id: 22,
+        name: "Street Style Distressed Denim Jeans",
+        category: "bottoms",
+        price: 42.00,
+        oldPrice: 85.00,
+        rating: "★ 4.8 (630)",
+        badge: "TOP PICK",
+        img: "876020565039160799.jpg",
+        desc: "Trendy distressed denim with a straight-leg cut."
+      },
+      {
+        id: 23,
+        name: "Vintage Urban Loose Fit Cargo Pants",
+        category: "bottoms",
+        price: 39.50,
+        oldPrice: 78.00,
+        rating: "★ 4.9 (740)",
+        badge: "NEW DROP",
+        img: "1104789352354407358.jpg",
+        desc: "Functional multi-pocket cargo pants."
+      },
+      {
+        id: 24,
+        name: "Minimalist Black Streetwear Hoodie",
+        category: "tops",
+        price: 38.00,
+        oldPrice: 75.00,
+        rating: "★ 4.8 (510)",
+        badge: "BEST VALUE",
+        img: "910219774741216321.jpg",
+        desc: "Cozy fleece-lined hoodie with a clean finish."
+      },
+      {
+        id: 25,
+        name: "Nike 6-Pair Cushion Crew Everyday Comfort Socks",
+        category: "local",
+        price: 15.00,
+        oldPrice: 30.00,
+        rating: "★ 4.9 (2.4k)",
+        badge: "ESSENTIAL",
+        img: "Nike 6-Pair Cushion Crew Socks – Everyday Comfort & Performance!.jpg",
+        desc: "Breathable athletic crew socks for daily performance."
+      },
+      {
+        id: 26,
+        name: "Streetwear Special Edition Apparel",
+        category: "tops",
+        price: 39.00,
+        oldPrice: 75.00,
+        rating: "★ 4.7 (190)",
+        badge: "LIMITED",
+        img: "39,000.jpg",
+        desc: "Exclusive special edition streetwear piece."
+      },
+      {
+        id: 27,
+        name: "Cyberpunk Techwear Printed Tee",
+        category: "tops",
+        price: 26.50,
+        oldPrice: 52.00,
+        rating: "★ 4.8 (340)",
+        badge: "HOT DEAL",
+        img: "982418106206053244.jpg",
+        desc: "Futuristic techwear graphic tee with clean prints."
+      },
+      {
+        id: 28,
+        name: "Casual Loose Fit Daily Sweatpants",
+        category: "bottoms",
+        price: 34.00,
+        oldPrice: 68.00,
+        rating: "★ 4.7 (460)",
+        badge: "COMFY FIT",
+        img: "1112741020460903103.jpg",
+        desc: "Plush cotton sweatpants with an adjustable waist."
+      },
+      {
+        id: 29,
+        name: "Classic All-Weather Foam Slides",
+        category: "footwear",
+        price: 28.00,
+        oldPrice: 55.00,
+        rating: "★ 4.9 (1.2k)",
+        badge: "FAVORITE",
+        img: "CROCS.jpg",
+        desc: "Durable all-weather foam slides."
+      },
+      {
+        id: 30,
+        name: "Retro Athletic Printed Track Jacket",
+        category: "tops",
+        price: 45.00,
+        oldPrice: 90.00,
+        rating: "★ 4.9 (380)",
+        badge: "TOP RATED",
+        img: "1133429431299712403.jpg",
+        desc: "Retro track jacket with a full zip front."
+      },
+      {
+        id: 31,
+        name: "Gothic Dark Wash Denim Jeans",
+        category: "bottoms",
+        price: 43.00,
+        oldPrice: 86.00,
+        rating: "★ 4.8 (670)",
+        badge: "NEW DROP",
+        img: "1097471002975962337.jpg",
+        desc: "Dark wash denim with unique hardware."
+      },
+      {
+        id: 32,
+        name: "Y2K Skeleton Rhinestone Zip Hoodie",
+        category: "tops",
+        price: 49.99,
+        oldPrice: 95.00,
+        rating: "★ 5.0 (820)",
+        badge: "MUST HAVE",
+        img: "1115555770221591057.jpg",
+        desc: "Stylish zip hoodie with rhinestone graphics."
+      },
+      {
+        id: 33,
+        name: "Wide Leg Vintage Skate Trousers",
+        category: "bottoms",
+        price: 37.00,
+        oldPrice: 74.00,
+        rating: "★ 4.7 (290)",
+        badge: "POPULAR",
+        img: "980518150148598395.jpg",
+        desc: "Baggy vintage skate trousers for easy movement."
+      },
+      {
+        id: 34,
+        name: "Forever 21 Rhinestone Embellished Dark Grey Washed Jeans",
+        category: "bottoms",
+        price: 48.00,
+        oldPrice: 95.00,
+        rating: "★ 4.9 (910)",
+        badge: "PREMIUM",
+        img: "Forever 21 Men's Loose Fitting Rhinestone Embellished Dark Grey Washed Jeans,Streetwear Men Party Clothes.jpg",
+        desc: "Loose-fitting washed jeans with rhinestone details."
+      },
+      {
+        id: 35,
+        name: "Graphic Streetwear Pullover Sweater",
+        category: "tops",
+        price: 36.00,
+        oldPrice: 72.00,
+        rating: "★ 4.8 (430)",
+        badge: "HOT ITEM",
+        img: "1111896595533831770.jpg",
+        desc: "Warm knit pullover with contemporary prints."
+      },
+      {
+        id: 36,
+        name: "Urban Tactical Utility Vest",
+        category: "tops",
+        price: 32.00,
+        oldPrice: 64.00,
+        rating: "★ 4.7 (310)",
+        badge: "LIMITED",
+        img: "870179959256073686.jpg",
+        desc: "Multi-pocket tactical vest for modern style."
+      },
+      {
+        id: 37,
+        name: "Heavyweight Oversized Vintage Graphic Tee",
+        category: "tops",
+        price: 28.00,
+        oldPrice: 56.00,
+        rating: "★ 4.9 (540)",
+        badge: "NEW DROP",
+        img: "1149684611110636030.jpg",
+        desc: "Vintage washed heavyweight boxy fit tee."
+      },
+      {
+        id: 38,
+        name: "Shorts Jeans Y2K Largo com Bordado",
+        category: "bottoms",
+        price: 35.00,
+        oldPrice: 70.00,
+        rating: "★ 4.9 (620)",
+        badge: "Y2K STYLE",
+        img: "👖 Shorts Jeans Y2K Largo com Bordado.jpg",
+        desc: "Y2K baggy denim shorts featuring embroidery."
+      },
+      {
+        id: 39,
+        name: "Praise Stores Special Men's Streetwear Jeans",
+        category: "bottoms",
+        price: 46.00,
+        oldPrice: 92.00,
+        rating: "★ 5.0 (480)",
+        badge: "2026 EDITION",
+        img: "Pin by Praise's Stores on Men's Jeans in 2026....jpg",
+        desc: "Special edition streetwear jeans for durability."
+      },
+      {
+        id: 40,
+        name: "Minimalist Monochrome Graphic Shirt",
+        category: "tops",
+        price: 25.00,
+        oldPrice: 50.00,
+        rating: "★ 4.8 (370)",
+        badge: "BEST SELLER",
+        img: "663506957641256842.jpg",
+        desc: "Clean monochrome shirt for easy layering."
+      },
+      {
+        id: 41,
+        name: "Distressed Acid Wash Denim Jacket",
+        category: "tops",
+        price: 52.00,
+        oldPrice: 105.00,
+        rating: "★ 4.9 (790)",
+        badge: "HOT DEAL",
+        img: "856317316679660555.jpg",
+        desc: "Classic acid wash denim jacket with button closures."
+      },
+      {
+        id: 42,
+        name: "Relaxed Fit Urban Chino Trousers",
+        category: "bottoms",
+        price: 33.00,
+        oldPrice: 66.00,
+        rating: "★ 4.7 (250)",
+        badge: "ESSENTIAL",
+        img: "927108273362867534.jpg",
+        desc: "Versatile relaxed fit trousers for smart-casual wear."
+      },
+      {
+        id: 43,
+        name: "Casual Streetwear Printed Layered Longsleeve",
+        category: "tops",
+        price: 31.00,
+        oldPrice: 62.00,
+        rating: "★ 4.8 (410)",
+        badge: "TRENDING",
+        img: "1129770256536002775.jpg",
+        desc: "Layered-look longsleeve with subtle chest prints."
+      },
+      {
+        id: 44,
+        name: "Retro Washed Oversized Crewneck",
+        category: "tops",
+        price: 37.50,
+        oldPrice: 75.00,
+        rating: "★ 4.9 (680)",
+        badge: "TOP RATED",
+        img: "1013661828636211027.jpg",
+        desc: "Cozy retro washed crewneck sweater."
+      },
+      {
+        id: 45,
+        name: "High-Waisted Baggy Cargo Denim Jeans",
+        category: "bottoms",
+        price: 44.00,
+        oldPrice: 88.00,
+        rating: "★ 4.9 (830)",
+        badge: "MUST HAVE",
+        img: "1092122978549122332.jpg",
+        desc: "High-waisted cargo denim combining utility and style."
+      }
+    ];
+
+    let cart = [];
+    let currentCategory = 'all';
+
+    function renderProducts(items) {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = items.map(p => {
+        let imgSrc = p.img.startsWith('http') ? p.img : encodeURI(p.img);
+        return `
+          <div class="card" onclick="openProductDetail(${p.id})" style="cursor: pointer;">
+            <div class="card-img-container">
+              <span class="badge">${p.badge}</span>
+              <img src="${imgSrc}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400'">
+            </div>
+            <div class="card-body">
+              <div class="card-title">${p.name}</div>
+              <div class="rating">${p.rating}</div>
+              <div class="price-row">
+                <span class="current-price">$${p.price.toFixed(2)}</span>
+                <span class="old-price">$${p.oldPrice.toFixed(2)}</span>
+              </div>
+              <button class="add-to-cart" onclick="event.stopPropagation(); openProductDetail(${p.id})">View Details</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openProductDetail(id) {
+      const p = products.find(item => item.id === id);
+      if (!p) return;
+      let imgSrc = p.img.startsWith('http') ? p.img : encodeURI(p.img);
+      
+      const container = document.querySelector('.container');
+      container.innerHTML = `
+        <button onclick="goBackToHome()" style="background:#fb7701; color:white; border:none; padding:10px 20px; border-radius:6px; font-weight:bold; cursor:pointer; margin-bottom:20px;">← Back to Store</button>
+        <div style="background:white; border-radius:12px; padding:20px; display:flex; flex-wrap:wrap; gap:30px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+          <div style="flex:1; min-width:280px; max-height:400px; background:#eee; border-radius:8px; overflow:hidden;">
+            <img src="${imgSrc}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div style="flex:1; min-width:280px; display:flex; flex-direction:column; gap:15px;">
+            <span style="background:#e60023; color:white; width:fit-content; font-size:12px; font-weight:bold; padding:4px 8px; border-radius:4px;">${p.badge}</span>
+            <h1 style="font-size:22px; color:#333;">${p.name}</h1>
+            <div style="font-size:14px; color:#ff9900;">${p.rating}</div>
+            <div style="display:flex; align-items:baseline; gap:10px;">
+              <span style="font-size:24px; font-weight:800; color:#e60023;">$${p.price.toFixed(2)}</span>
+              <span style="font-size:14px; color:#888; text-decoration:line-through;">$${p.oldPrice.toFixed(2)}</span>
+            </div>
+            <p style="color:#666; font-size:15px; line-height:1.5;">${p.desc}</p>
+            <div style="display:flex; align-items:center; gap:10px; margin-top:10px;">
+              <label for="qty" style="font-weight:bold;">Quantity:</label>
+              <input type="number" id="qty" value="1" min="1" max="99" style="width:60px; padding:8px; border:1px solid #ddd; border-radius:6px; font-size:16px; text-align:center;">
+            </div>
+            <button onclick="addDetailedToCart(${p.id})" style="background:#fb7701; color:white; border:none; padding:14px; border-radius:8px; font-size:16px; font-weight:bold; cursor:pointer; margin-top:10px;">Add to Cart</button>
+          </div>
+        </div>
+      `;
+      window.scrollTo(0,0);
+    }
+
+    function goBackToHome() {
+      location.reload();
+    }
+
+    function addDetailedToCart(id) {
+      const p = products.find(item => item.id === id);
+      const qty = parseInt(document.getElementById('qty').value) || 1;
+      for(let i = 0; i < qty; i++) {
+        cart.push(p);
+      }
+      document.getElementById('cartCount').innerText = cart.length;
+      alert(`${qty} item(s) added to cart successfully!`);
+      goBackToHome();
+    }
+
+    function filterProducts() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = products.filter(p => 
+        (currentCategory === 'all' || p.category === currentCategory) &&
+        p.name.toLowerCase().includes(query)
+      );
+      renderProducts(filtered);
+    }
+
+    function filterCategory(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterProducts();
+    }
+
+    function openCart() {
+      const modal = document.getElementById('cartModal');
+      const list = document.getElementById('cartItemsList');
+      const totalSpan = document.getElementById('cartTotal');
+      
+      if (cart.length === 0) {
+        list.innerHTML = '<p style="text-align:center; color:#777;">Your cart is empty!</p>';
+        totalSpan.innerText = '$0.00';
+      } else {
+        list.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <span>${item.name}</span>
+            <b>$${item.price.toFixed(2)}</b>
+          </div>
+        `).join('');
+        
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        totalSpan.innerText = `$${total.toFixed(2)}`;
+      }
+      
+      modal.style.display = 'flex';
+    }
+
+    function closeCart() {
+      document.getElementById('cartModal').style.display = 'none';
+    }
+
+    function checkout() {
+      if(cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      
+      let orderDetails = "Hello! I would like to place an order from GlobalBuy:%0A%0A";
+      cart.forEach((item, index) => {
+        orderDetails += `${index + 1}. ${item.name} - $${item.price.toFixed(2)}%0A`;
+      });
+      orderDetails += `%0A*Total Amount: $${total.toFixed(2)}*%0A%0APlease let me know how to proceed with payment and delivery!`;
+
+      const phoneNumber = "2348101465167"; 
+
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${orderDetails}`;
+      window.open(whatsappURL, '_blank');
+
+      cart = [];
+      document.getElementById('cartCount').innerText = 0;
+      closeCart();
+    }
+
+    renderProducts(products);
+  </script>>
     const products = [
       {
         id: 1,
