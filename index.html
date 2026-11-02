@@ -327,7 +327,6 @@
 
   <script>
     const products = [
-      // --- ORIGINAL STOCK ---
       {
         id: 1,
         name: "ROMWE MEN Casual Patchwork Angel Letter Shirt",
@@ -488,8 +487,6 @@
         badge: "HOT DEAL",
         img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400"
       },
-
-      // --- NEWLY ADDED UPLOADS (SCREENSHOT 1) ---
       {
         id: 17,
         name: "New White AMIRI Fall Winter Knit Outdoor Warmth Hat",
@@ -590,8 +587,6 @@
         badge: "LIMITED",
         img: "39,000.jpg"
       },
-
-      // --- NEWLY ADDED UPLOADS (SCREENSHOT 2) ---
       {
         id: 27,
         name: "Cyberpunk Techwear Printed Tee",
@@ -692,8 +687,6 @@
         badge: "LIMITED",
         img: "870179959256073686.jpg"
       },
-
-      // --- NEWLY ADDED UPLOADS (SCREENSHOT 3) ---
       {
         id: 37,
         name: "Heavyweight Oversized Vintage Graphic Tee",
@@ -876,7 +869,6 @@
       });
       orderDetails += `%0A*Total Amount: $${total.toFixed(2)}*%0A%0APlease let me know how to proceed with payment and delivery!`;
 
-      // Direct WhatsApp number configuration
       const phoneNumber = "2348101465167"; 
 
       const whatsappURL = `https://wa.me/${phoneNumber}?text=${orderDetails}`;
@@ -884,7 +876,7 @@
 
       cart = [];
       document.getElementById('cartCount').innerText = 0;
-      closeCart();
+      closeCard();
     }
 
     renderProducts(products);
